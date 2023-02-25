@@ -105,3 +105,19 @@ body{
 
 /* Playground CSS */
 
+.playground-wrapper{
+    width: 100%;
+    background: rgba(16, 16, 30, 0.6);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.wrapper .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fec107;
+    text-align: center;
+}

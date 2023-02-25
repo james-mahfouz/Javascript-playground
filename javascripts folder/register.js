@@ -1,7 +1,8 @@
 window.onload = function(){
     let button = document.getElementById('register_btn')
+    
     button.addEventListener('click', handleClick)
-
+    
     function handleClick() {
         let first_name = document.getElementById('f_name').value
         let last_name = document.getElementById('l_name').value
@@ -11,17 +12,20 @@ window.onload = function(){
         let conf_password = document.getElementById('re_pass_code').value
         let last_ID = 0
         let data = {}
+        
 
         if (checkEmptyValue() || checkEmail() || checkPassword()) {
             button.removeEventListener('click', handleClick)
         }
         else{
-            ID = generateID()
+            let ID = generateID()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
+            const jsonString = JSON.stringify(data)
+            localStorage.setItem('ID${ID}', JSON.stringify(data))
             window.location.href = "playground.html"
+
         }
-        
 
         function checkEmptyValue() {
             if (first_name.trim() == '' || last_name.trim() == '' || gender.trim() == '' || email.trim() == '' || password.trim() == '' || conf_password.trim() == '') {
@@ -51,7 +55,7 @@ window.onload = function(){
         }
 
         function checkPassword() {
-            let pass_regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/
+            let pass_regex = /^(?=.*[A-Z])(?=.*[!@#$%_^&*])(?=.{8,})/
             if (!pass_regex.test(password) || password != conf_password) {
                 alert("Password should contain 8 characters minimum, one special character minimum, at least one upper case letter.")
                 return true
@@ -61,6 +65,6 @@ window.onload = function(){
             }
         }
 
-
-    } 
+        
+    }  
 }
