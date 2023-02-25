@@ -1,0 +1,11 @@
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+
+.name{
+    display: fex;
+    flex-direction: row;
+}
