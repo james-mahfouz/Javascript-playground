@@ -22,7 +22,7 @@ window.onload = function(){
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
             const jsonString = JSON.stringify(data)
-            localStorage.setItem('ID${ID}', JSON.stringify(data))
+            localStorage.setItem('IDs', JSON.stringify(data))
             window.location.href = "playground.html"
 
         }

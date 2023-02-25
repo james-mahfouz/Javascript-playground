@@ -114,10 +114,47 @@ body{
     text-align: center;
 }
 
-.wrapper .title{
-    font-size: 24px;
+.title{
+    font-size: 6vw;
     font-weight: 700;
     margin-bottom: 25px;
     color: #fec107;
     text-align: center;
+}
+
+.inputs{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.inputs input{
+    width: 5vw;
+    background-color: rgba(16, 16, 30);
+    font-size: larger;
+    margin-top: 50px;
+}
+
+.numbers_header{
+    margin-top: 50px;
+}
+
+.numbers_label{
+    margin-top: 50px;
+    font-size: 4vw;
+}
+
+#result{
+    font-size: 2vw;
+}
+
+.playground-wrapper form button{
+    margin-top: 50px;
+    background-color: #fec107;
+    width: 10%;
+    height: auto;
+    border-radius: 20%;
+    height: 2vw;
+    padding-bottom: 30px;
+    color: rgba(16, 16, 30);
 }
