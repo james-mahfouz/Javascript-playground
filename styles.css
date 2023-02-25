@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
+/* global */
 *{
     margin: 0;
     padding: 0;
@@ -15,6 +16,8 @@ body{
     padding: 0 10px;
 }
 
+
+/* Registration form CSS */
 .wrapper{
     max-width: 500px;
     width: 100%;
@@ -98,5 +101,5 @@ body{
     border-radius: 3px;
 }
 
-
+/* Playground CSS */
 
