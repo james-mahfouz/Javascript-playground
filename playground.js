@@ -12,39 +12,52 @@ window.onload = function(){
         let last_ID = 0
         let data = {}
 
-        if (checkEmptyValue()) {
+        if (checkEmptyValue() || checkEmail() || checkPassword()) {
             button.removeEventListener('click', handleClick)
         }
         else{
             ID = generateID()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
-            for (var i =0 ; i<7; i++){
-                console.log(data[ID][i])
-            }
         }
 
         function checkEmptyValue() {
             if (first_name.trim() == '' || last_name.trim() == '' || gender.trim() == '' || email.trim() == '' || password.trim() == '' || conf_password.trim() == '') {
-                return true;
+                alert("There is an empty field")
+                return true
             }
             else {
-                return false;
+                return false
             }
         }
 
         function generateID(){
-            last_ID++;
-            return last_ID;
+            last_ID++
+            return last_ID
         }
-    }
-    
-    function checkEmail(){
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Invalid email format");
-        return;
+
+        function checkEmail(){
+            let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if (!email_regex.test(email)) {
+                alert("Invalid email format")
+                console.log("Invalid email")
+                return true
+            }
+            else{
+                return false
+            }
         }
-    }
- 
+
+        function checkPassword() {
+            let pass_regex = /^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$/
+            alert(pass_regex)
+            if (!pass_regex.test(password) || password != conf_password) {
+                alert("Password is invalid")
+                return true
+            } 
+            else {
+                return false
+            }
+          }
+    } 
 }
