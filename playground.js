@@ -19,7 +19,9 @@ window.onload = function(){
             ID = generateID()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
+            window.location.href = "playground.html"
         }
+        
 
         function checkEmptyValue() {
             if (first_name.trim() == '' || last_name.trim() == '' || gender.trim() == '' || email.trim() == '' || password.trim() == '' || conf_password.trim() == '') {
@@ -49,15 +51,16 @@ window.onload = function(){
         }
 
         function checkPassword() {
-            let pass_regex = /^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$/
-            alert(pass_regex)
+            let pass_regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/
             if (!pass_regex.test(password) || password != conf_password) {
-                alert("Password is invalid")
+                alert("Password should contain 8 characters minimum, one special character minimum, at least one upper case letter.")
                 return true
             } 
             else {
                 return false
             }
-          }
+        }
+
+
     } 
 }

@@ -11,6 +11,7 @@
 
 body{
     background-image: url(https://www.testim.io/wp-content/uploads/2021/07/main_image@2x.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
