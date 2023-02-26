@@ -183,3 +183,11 @@ section>h1{
     width: 20vw;
 }
 
+#animation img{
+    width: 40vw;
+    height: auto;
+    margin-top: 20px;
+    position: relative;
+    display: none;
+    right: 0;
+}

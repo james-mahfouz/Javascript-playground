@@ -5,6 +5,7 @@ window.onload = function(){
     let course_button = document.getElementById('course_button')
     let magic_button = document.getElementById('magic_button')
     let consonant_button = document.getElementById('consonant_button')
+    let animation = document.getElementById('animation')
 
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
@@ -12,6 +13,8 @@ window.onload = function(){
     course_button.addEventListener('click', create_course)
     magic_button.addEventListener('click', reverse_numb_string)
     consonant_button.addEventListener('click', consonant_switch)
+    animation.addEventListener('mouseover', move_image)
+    animation.addEventListener('mouseover',show_image)
 
     function merge_numbers(){
         event.preventDefault()
@@ -174,7 +177,7 @@ window.onload = function(){
         let changed_consonants = consonant_input.slice(index) + consonant_input.slice(0, index) + "ay" 
         console.log(changed_consonants)
         
-        display.innerHTML = changed_consonants + '<br> Yup I am really bored hope I get a good great for this assignement'
+        display.innerHTML = changed_consonants + '<br> Yup I am really bored hope I get a good grade for this assignement'
 
         function check_vowel(char){
             return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase())
@@ -189,4 +192,24 @@ window.onload = function(){
             }
         }
     }
+
+    function move_image(){
+        console.log("it worked")
+        var img = document.getElementById("loghouse")
+        var position = 0
+        var id = setInterval(frame, 100)
+        function frame() {
+            if (position == 350) {
+                clearInterval(id)
+            } else {
+                position++
+                img.style.left = position + 'px'
+            }
+        }
+    }
+    function show_image() {
+        var img = document.getElementById("loghouse")
+        img.style.display = "inline-block"
+      }
+
 }
