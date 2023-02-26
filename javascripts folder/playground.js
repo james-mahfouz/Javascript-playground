@@ -22,9 +22,7 @@ window.onload = function(){
     to_top_button.addEventListener('click', scroll_top)
     addEventListener('scroll', scroll_function)
     get_location()
-    fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {const IP_address = data.ip
-        console.log(typeof IP_address)
-    });
+
 
     let alert_displayed = false
     function scroll_function() {
@@ -231,7 +229,18 @@ window.onload = function(){
     }
 
     function get_ip_address(){
-        alert("this is your IP address")
+        let display = document.getElementById('ip_output')
+        let sum_IP = 0
+
+        fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {const IP_address = data.ip
+            console.log(typeof IP_address, IP_address)
+            for(let i = 0; i<IP_address.length; i++){
+                if(parseInt(IP_address[i])%2==0){
+                    sum_IP += parseInt(IP_address[i])
+                }
+            }
+          display.innerHTML = IP_address + '<br> and for fun here is the sum of the even number of your IP address <br>' +sum_IP 
+        })
     }
 
     function get_location(){
