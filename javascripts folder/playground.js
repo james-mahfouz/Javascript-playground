@@ -39,12 +39,16 @@ window.onload = function(){
         event.preventDefault()
         let display_result = document.getElementById('result')
         display_result.innerHTML=""
-        let numbers_array = document.getElementsByClassName('number_input')
-        
-
+        let numbers_input = document.getElementsByClassName('number_input')
+        let numbers_array =[]
+        //storing the input in the array
+        for (let i=0; i <numbers_input.length; i++){
+            numbers_array.push(parseInt(numbers_input[i].value))
+        }
         console.log(numbers_array)
         let sorted_array = merge_sort(numbers_array)
 
+        //displaying the result
         console.log(sorted_array)
         for (var i =0; i<sorted_array.length; i++){
             console.log(sorted_array[i])
@@ -55,18 +59,20 @@ window.onload = function(){
             if (array.length <= 1) {
                 return array
             }
+            //split the two array in two half recursively until we reach the value one for each aray
             let middle = Math.floor(array.length / 2)
             let left = array.slice(0, middle)
             let right = array.slice(middle)
         
             const sorted_left = merge_sort(left)
             const sorted_right = merge_sort(right)
-        
+            //apply the merge sort
             return merge(sorted_left, sorted_right)
         }
         
         function merge(left, right) {
             let result = [];
+            //if the first value at left is smaller it will push to result else it will push the right one
             while (left.length && right.length) {
                 if (left[0] <= right[0]) {
                     result.push(left.shift())
@@ -75,7 +81,8 @@ window.onload = function(){
                     result.push(right.shift())
                 }
             }
-
+            
+            //loop to push whatever stayed in the array
             while (left.length) {
                 result.push(left.shift())
             }
@@ -90,13 +97,12 @@ window.onload = function(){
         event.preventDefault()
         let palindrome_string = document.getElementById('user_palindrome_input').value
         let display = document.getElementById('palindrome-output')
-        console.log(palindrome_string)
-        console.log(display.innerHTML)
-        console.log(display.innerHTML)
+
         display.innerHTML = palindrome_string + " is " + palindrome(palindrome_string)
-        console.log(palindrome(palindrome_string))
 
         function palindrome_helper(string, begin, end) {
+            //will check if the begin and and end character are equal and each time begin will
+            //increment and end will decrement until begin is bigger than end
             console.log(string, begin, end)
             if (string[begin] != string[end]) {
                 return false;
@@ -109,7 +115,7 @@ window.onload = function(){
                 return palindrome_helper(string, begin + 1, end - 1)
             }
         }
-            
+
         function palindrome(string) {
             return palindrome_helper(string, 0, string.length - 1)
         }
@@ -165,20 +171,25 @@ window.onload = function(){
         let string_input = document.getElementById('magic_input').value
         let display = document.getElementById('magic-output')
 
+        //regular expression for digits
         let digit_check = /\d/
         let digits = []
         let index = []
         let string_array = string_input.split('')
+        //check if a character is a digit, if yes will push it to the array
+        //also pushing the indexes for time complexity
         for (let i = 0 ;i <string_array.length; i++){
             if(digit_check.test(string_array[i])){
                 digits.push(string_array[i])
                 index.push(i)
             }
         }
+        //put the last number of the array where we found the first one
         for(let i = 0;i<index.length;i++){
             string_array[index[i]]=digits.pop()
         }
 
+        //retransform the array to a string
         let string_output = string_array.join("")
         display.innerHTML =string_output +  '<br>HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this <br> if Charbel saw this I am so happy in the bootcamp'
 
@@ -190,15 +201,17 @@ window.onload = function(){
         let index=0
         check_first_consonants(consonant_input)
 
+        //cut the strin at the vowel index we found, put it in the end and add ay
         let changed_consonants = consonant_input.slice(index) + consonant_input.slice(0, index) + "ay" 
         console.log(changed_consonants)
         
         display.innerHTML = changed_consonants + '<br> Yup I am really bored hope I get a good grade for this assignement'
 
         function check_vowel(char){
+            //check if vowe
             return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase())
         }
-
+        
         function check_first_consonants(string){
             for (let i = 0; i<string.length; i++){
                 if(check_vowel(string[i])){
@@ -210,11 +223,13 @@ window.onload = function(){
     }
 
     function move_image(){
-        console.log("it worked")
-        var img = document.getElementById("loghouse")
-        var position = 0
-        var id = setInterval(frame, 100)
+        let img = document.getElementById("loghouse")
+        let position = 0
+        //set an interval in which the image will move in
+        let id = setInterval(frame, 50)
+        
         function frame() {
+            //check if it reached the end
             if (position == 350) {
                 clearInterval(id)
             } else {
@@ -231,7 +246,7 @@ window.onload = function(){
     function get_ip_address(){
         let display = document.getElementById('ip_output')
         let sum_IP = 0
-
+        //get the IP address transform it to an objet than a string
         fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {const IP_address = data.ip
             console.log(typeof IP_address, IP_address)
             for(let i = 0; i<IP_address.length; i++){
@@ -244,18 +259,19 @@ window.onload = function(){
     }
 
     function get_location(){
+        //if we have the location we get the position
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(show_position);
         } else {
             your_location.innerHTML = "So you value your privaacy";
         }
     }
-
+    //get the latitude and longitude and display them in the html
     function show_position(position) {
         your_location.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude
     }
       
-    
+    //get you to the top
     function scroll_top(){
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
