@@ -8,6 +8,7 @@ window.onload = function(){
     let animation = document.getElementById('animation')
     let ip_button = document.getElementById('ip_button')
     let to_top_button = document.getElementById('to_top_button')
+    let your_location = document.getElementById('your_location')
     
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
@@ -20,8 +21,9 @@ window.onload = function(){
     ip_button.addEventListener('click', get_ip_address)
     to_top_button.addEventListener('click', scroll_top)
     addEventListener('scroll', scroll_function)
-    
-    
+    get_location()
+
+
     let alert_displayed = false
     function scroll_function() {
         if (!alert_displayed && document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
@@ -178,7 +180,7 @@ window.onload = function(){
         }
 
         let string_output = string_array.join("")
-        display.innerHTML =string_output +  '<br>HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this'
+        display.innerHTML =string_output +  '<br>HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this <br> if Charbel saw this I am so happy in the bootcamp'
 
     }
 
@@ -229,6 +231,20 @@ window.onload = function(){
     function get_ip_address(){
         alert("this is your IP address")
     }
+
+    function get_location(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(show_position)
+            console.log(navigator.geolocation.getCurrentPosition(show_position))
+        } else {
+            your_location.innerHTML = "You're a mystery guy"
+        }
+    }
+
+    function show_position(position) {
+        your_location.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude
+    }
+      
     
     function scroll_top(){
         document.body.scrollTop = 0
