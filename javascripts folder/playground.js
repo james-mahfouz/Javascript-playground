@@ -22,7 +22,9 @@ window.onload = function(){
     to_top_button.addEventListener('click', scroll_top)
     addEventListener('scroll', scroll_function)
     get_location()
-
+    fetch('https://api.ipify.org/?format=json').then(response => response.json()).then(data => {const IP_address = data.ip
+        console.log(typeof IP_address)
+    });
 
     let alert_displayed = false
     function scroll_function() {
@@ -234,10 +236,9 @@ window.onload = function(){
 
     function get_location(){
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(show_position)
-            console.log(navigator.geolocation.getCurrentPosition(show_position))
+            navigator.geolocation.getCurrentPosition(show_position);
         } else {
-            your_location.innerHTML = "You're a mystery guy"
+            your_location.innerHTML = "So you value your privaacy";
         }
     }
 
