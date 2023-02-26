@@ -1,7 +1,9 @@
 window.onload = function(){
     let merge_button = document.getElementById('merge_button')
+    let palindrome_button = document.getElementById('palindrome_button')
 
     merge_button.addEventListener('click', merge_numbers)
+    palindrome_button.addEventListener('click', check_palindrome)
 
     function merge_numbers(){
         event.preventDefault()
@@ -56,4 +58,33 @@ window.onload = function(){
             return result;
         }
     }  
+
+    function check_palindrome(){
+        event.preventDefault()
+        let palindrome_string = document.getElementById('user_palindrome_input').value
+        let display = document.getElementById('palindrome-output')
+        console.log(palindrome_string)
+        console.log(display.innerHTML)
+        console.log(display.innerHTML)
+        display.innerHTML = palindrome_string + " is " + palindrome(palindrome_string)
+        console.log(palindrome(palindrome_string))
+
+        function palindrome_helper(string, begin, end) {
+            console.log(string, begin, end)
+            if (string[begin] != string[end]) {
+                return false;
+            } else if (string.length == 1) {
+
+                return true;
+            } else if (begin > end) {
+                return true;
+            } else {
+                return palindrome_helper(string, begin + 1, end - 1);
+            }
+        }
+            
+        function palindrome(string) {
+            return palindrome_helper(string, 0, string.length - 1);
+        }
+    }
 }

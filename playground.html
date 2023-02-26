@@ -14,7 +14,6 @@
         <section class="sorting-numbers">
             <form action="">
                 <div class="numbers_header">
-                    
                     <label class="numbers_label">Enter 10 numbers</label>
                 </div>
                 <div class="inputs">
@@ -31,7 +30,7 @@
                 </div>
                 <button type="submit" id="merge_button">ENTER</button>
 
-                <div id="result"></div>
+                <div id="result" class="result"></div>
             </form>
             <div class="merge">
                 <p>Merge sort is one of the most efficient sorting algorithms. It is based 
@@ -42,8 +41,17 @@
         </section>
 
         <section class="checking_if_palindrome">
-            <h1>You now know what is a merge sort, discover what is a palindrome</h1>
-
+            <h1>You now know what is a merge sort, discover what a PALIINDROME is</h1>
+            <p>A Palindrome is a word, phrase, or sequence that reads the same backwards as forwards, 
+                e.g. madam or nurses run.</p>
+            <div class="palindrome-input">
+                <label for="">Input a PALINDROME</label>
+                <input type="text" id="user_palindrome_input">
+                <div>
+                    <button type="submit" id="palindrome_button">Enter</button>
+                </div>    
+            </div>
+            <div id="palindrome-output" class="result">hello</div>
         </section>
     </div>
 </body>
