@@ -143,6 +143,8 @@ window.onload = function(){
 
     function reverse_numb_string(){
         let string_input = document.getElementById('magic_input').value
+        let display = document.getElementById('magic-output')
+
         let digit_check = /\d/
         let digits = []
         let index = []
@@ -155,7 +157,9 @@ window.onload = function(){
         }
         for(let i = 0;i<index.length;i++){
             string_array[index[i]]=digits.pop()
-            console.log(string_array[index[i]])
         }
+
+        let string_output = string_array.join("")
+        console.log(string_output)
     }
 }
