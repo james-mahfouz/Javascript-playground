@@ -178,3 +178,7 @@ body{
 section>h1{
     font-size: 20px;
 }
+
+.course .inputs input{
+    width: 20vw;
+}

@@ -1,11 +1,14 @@
 window.onload = function(){
+    
     let merge_button = document.getElementById('merge_button')
     let palindrome_button = document.getElementById('palindrome_button')
     let prime_button = document.getElementById('prime_button')
+    let course_button = document.getElementById('course_button')
 
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
+    course_button.addEventListener('click', create_course)
 
     function merge_numbers(){
         event.preventDefault()
@@ -113,5 +116,26 @@ window.onload = function(){
             }
             return is_prime
         }
+    }
+
+    function create_course(){
+        event.preventDefault()
+        class Course{
+                constructor(code, instructor, name, credits){
+                this.code = code
+                this.instructor = instructor
+                this.name = name
+                this.credits = credits
+            }
+        }
+        let c_code = document.getElementById('c_code').value
+        let c_instructor = document.getElementById('c_instructor').value
+        let c_name = document.getElementById('c_name').value
+        let c_credits = document.getElementById('c_credits').value
+        let display = document.getElementById('course_result')
+
+        let course = new Course(c_code, c_instructor, c_name, c_credits)
+        console.log(course.code, course.instructor, course.name , course.credits)
+        display.innerHTML = `This course ${course.name} with ${course.instructor} seems borring that is why you are ditching to play in the Javascript playground. I can suggest the FSW as a replacement BEST BOOTCAMP EVER`
     }
 }
