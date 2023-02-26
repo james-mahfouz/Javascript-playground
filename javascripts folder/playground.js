@@ -142,14 +142,20 @@ window.onload = function(){
     }
 
     function reverse_numb_string(){
-        let string_input = document.getElementById('magic_input')
-
+        let string_input = document.getElementById('magic_input').value
         let digit_check = /\d/
-        let digits = string_input.matches(digit_check)
-        if (!digits){
-            return string_input
+        let digits = []
+        let index = []
+        let string_array = string_input.split('')
+        for (let i = 0 ;i <string_array.length; i++){
+            if(digit_check.test(string_array[i])){
+                digits.push(string_array[i])
+                index.push(i)
+            }
         }
-        let reversed_digits = digits.reverse().join('')
-        console.log(reversed_digits)
+        for(let i = 0;i<index.length;i++){
+            string_array[index[i]]=digits.pop()
+            console.log(string_array[index[i]])
+        }
     }
 }
