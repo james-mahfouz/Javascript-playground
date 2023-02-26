@@ -21,8 +21,6 @@ window.onload = function(){
             let ID = generateID()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
-            const jsonString = JSON.stringify(data)
-            localStorage.setItem('IDs', JSON.stringify(data))
             window.location.href = "playground.html"
 
         }
