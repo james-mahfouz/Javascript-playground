@@ -13,8 +13,8 @@
 
         <section class="sorting-numbers">
             <form action="">
-                <div class="numbers_header">
-                    <label class="numbers_label">Enter 10 numbers</label>
+                <div class="label">
+                    <label>Enter 10 numbers</label>
                 </div>
                 <div class="inputs">
                     <input type="number" class="number_input">
@@ -45,14 +45,39 @@
             <p>A Palindrome is a word, phrase, or sequence that reads the same backwards as forwards, 
                 e.g. madam or nurses run.</p>
             <div class="palindrome-input">
-                <label for="">Input a PALINDROME</label>
-                <input type="text" id="user_palindrome_input">
+                <div class="label">
+                    <label for="" >Input a PALINDROME</label>
+                </div>
                 <div>
-                    <button type="submit" id="palindrome_button">Enter</button>
+                    <input type="text" id="user_palindrome_input" class="input">
+                </div>    
+                <div>
+                    <button type="submit" id="palindrome_button" class="button">Enter</button>
                 </div>    
             </div>
-            <div id="palindrome-output" class="result">hello</div>
+            <div id="palindrome-output" class="result"></div>
         </section>
+
+        <section>
+            <h1>I hope you now know what a palindrome is, Now check if your age is 
+                a prime number</h1>
+            <p>A prime number is a whole number greater than 1 that cannot be exactly 
+                divided by any whole number other than itself and 1 (e.g. 2, 3, 5, 7, 11).
+                e.g. madam or nurses run.</p>
+            <div class="prime-input">
+                <div class="label">
+                    <label for="">Write the year you were born in</label>
+                </div>
+                <div>
+                    <input type="number" id="user_prime_input" class="input">
+                </div>    
+                <div>
+                    <button type="submit" id="prime_button" class="button">Enter</button>
+                </div>    
+            </div>
+            <div id="prime-output" class="result"></div>
+        </section>
+        
     </div>
 </body>
 </html>
