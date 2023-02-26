@@ -6,7 +6,17 @@ window.onload = function(){
     let magic_button = document.getElementById('magic_button')
     let consonant_button = document.getElementById('consonant_button')
     let animation = document.getElementById('animation')
+    let ip_button = document.getElementById('ip_button')
+    let to_top = document.getElementById('to_top_button')
+    window.onscroll = function() {
+        scrollFunction()
+    }
 
+    function scrollFunction() {
+        if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+            alert("Nice you seem interested")
+        }
+    }
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
@@ -15,6 +25,8 @@ window.onload = function(){
     consonant_button.addEventListener('click', consonant_switch)
     animation.addEventListener('mouseover', move_image)
     animation.addEventListener('mouseover',show_image)
+    ip_button.addEventListener('click', get_ip_address)
+    to_top_button.addEventListener('click', scroll_top)
 
     function merge_numbers(){
         event.preventDefault()
@@ -210,6 +222,14 @@ window.onload = function(){
     function show_image() {
         var img = document.getElementById("loghouse")
         img.style.display = "inline-block"
-      }
+    }
 
+    function get_ip_address(){
+        alert("this is your IP address")
+    }
+    
+    function scroll_top(){
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
 }

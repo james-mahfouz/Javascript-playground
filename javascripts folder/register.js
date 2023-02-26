@@ -21,6 +21,7 @@ window.onload = function(){
             let ID = generate_id()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
+            JSON.stringify(data)
             window.location.href = "playground.html"
 
         }
