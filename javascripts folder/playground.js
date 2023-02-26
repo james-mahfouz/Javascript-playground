@@ -160,6 +160,7 @@ window.onload = function(){
         }
 
         let string_output = string_array.join("")
-        console.log(string_output)
+        display.innerHTML = 'HAHAHHAHA numbers in the string are reversed :p , no kidding just continue'
+
     }
 }
