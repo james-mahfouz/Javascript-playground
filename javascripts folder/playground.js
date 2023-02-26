@@ -1,16 +1,17 @@
 window.onload = function(){
-    
     let merge_button = document.getElementById('merge_button')
     let palindrome_button = document.getElementById('palindrome_button')
     let prime_button = document.getElementById('prime_button')
     let course_button = document.getElementById('course_button')
     let magic_button = document.getElementById('magic_button')
+    let consonant_button = document.getElementById('consonant_button')
 
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
     course_button.addEventListener('click', create_course)
     magic_button.addEventListener('click', reverse_numb_string)
+    consonant_button.addEventListener('click', consonant_switch)
 
     function merge_numbers(){
         event.preventDefault()
@@ -33,36 +34,36 @@ window.onload = function(){
 
         function merge_sort(array) {
             if (array.length <= 1) {
-                return array;
+                return array
             }
-            let middle = Math.floor(array.length / 2);
-            let left = array.slice(0, middle);
-            let right = array.slice(middle);
+            let middle = Math.floor(array.length / 2)
+            let left = array.slice(0, middle)
+            let right = array.slice(middle)
         
-            const sorted_left = merge_sort(left);
-            const sorted_right = merge_sort(right);
+            const sorted_left = merge_sort(left)
+            const sorted_right = merge_sort(right)
         
-            return merge(sorted_left, sorted_right);
+            return merge(sorted_left, sorted_right)
         }
         
         function merge(left, right) {
             let result = [];
             while (left.length && right.length) {
                 if (left[0] <= right[0]) {
-                    result.push(left.shift());
+                    result.push(left.shift())
                 }
                 else {
-                    result.push(right.shift());
+                    result.push(right.shift())
                 }
             }
 
             while (left.length) {
-                result.push(left.shift());
+                result.push(left.shift())
             }
             while (right.length) {
-                result.push(right.shift());
+                result.push(right.shift())
             }
-            return result;
+            return result
         }
     }  
 
@@ -86,12 +87,12 @@ window.onload = function(){
             } else if (begin > end) {
                 return true;
             } else {
-                return palindrome_helper(string, begin + 1, end - 1);
+                return palindrome_helper(string, begin + 1, end - 1)
             }
         }
             
         function palindrome(string) {
-            return palindrome_helper(string, 0, string.length - 1);
+            return palindrome_helper(string, 0, string.length - 1)
         }
     }
 
@@ -160,7 +161,28 @@ window.onload = function(){
         }
 
         let string_output = string_array.join("")
-        display.innerHTML = 'HAHAHHAHA numbers in the string are reversed :p , no kidding just continue'
+        display.innerHTML = 'HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this'
 
+    }
+
+    function consonant_switch(){
+        let consonant_input = document.getElementById('consonant_input').value
+        let display = document.getElementById('consonant-output').value
+
+        let changed_word
+
+        function check_vowel(char){
+            return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase())
+        }
+
+        function check_first_consonants(string){
+            index=0
+            for (let i = 0; i<string.length; i++){
+                if(check_vowel(string[i])){
+                    index=i
+                    break
+                }
+            }
+        }
     }
 }
