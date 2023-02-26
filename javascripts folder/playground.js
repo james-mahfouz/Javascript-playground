@@ -4,11 +4,13 @@ window.onload = function(){
     let palindrome_button = document.getElementById('palindrome_button')
     let prime_button = document.getElementById('prime_button')
     let course_button = document.getElementById('course_button')
+    let magic_button = document.getElementById('magic_button')
 
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
     course_button.addEventListener('click', create_course)
+    magic_button.addEventListener('click', reverse_numb_string)
 
     function merge_numbers(){
         event.preventDefault()
@@ -21,7 +23,7 @@ window.onload = function(){
         }
 
         console.log(numbers_array)
-        let sorted_array = mergeSort(numbers_array)
+        let sorted_array = merge_sort(numbers_array)
 
         console.log(sorted_array)
         for (var i =0; i<sorted_array.length; i++){
@@ -29,7 +31,7 @@ window.onload = function(){
             display_result.innerHTML = display_result.innerHTML + sorted_array[i]+"      "
         }
 
-        function mergeSort(array) {
+        function merge_sort(array) {
             if (array.length <= 1) {
                 return array;
             }
@@ -37,10 +39,10 @@ window.onload = function(){
             let left = array.slice(0, middle);
             let right = array.slice(middle);
         
-            const sortedLeft = mergeSort(left);
-            const sortedRight = mergeSort(right);
+            const sorted_left = merge_sort(left);
+            const sorted_right = merge_sort(right);
         
-            return merge(sortedLeft, sortedRight);
+            return merge(sorted_left, sorted_right);
         }
         
         function merge(left, right) {
@@ -100,16 +102,16 @@ window.onload = function(){
         age=parseInt(age)
         console.log(age)
 
-        if(isPrime(age)){
+        if(is_prime(age)){
             display.innerHTML = `Nice, You are ${age} years old, which is a prime number`
         }else{
             display.innerHTML = `Nice, You are ${age} years old, but it isn't a prime number`
         }
 
-        function isPrime(age_input){
+        function is_prime(age_input){
             let is_prime = true
             for(let i = 2; i<= age/2; i++){
-                if(age % i==0){
+                if(age_input % i==0){
                     is_prime=false
                     break;
                 }
@@ -137,5 +139,17 @@ window.onload = function(){
         let course = new Course(c_code, c_instructor, c_name, c_credits)
         console.log(course.code, course.instructor, course.name , course.credits)
         display.innerHTML = `This course ${course.name} with ${course.instructor} seems borring that is why you are ditching to play in the Javascript playground. I can suggest the FSW as a replacement BEST BOOTCAMP EVER`
+    }
+
+    function reverse_numb_string(){
+        let string_input = document.getElementById('magic_input')
+
+        let digit_check = /\d/
+        let digits = string_input.matches(digit_check)
+        if (!digits){
+            return string_input
+        }
+        let reversed_digits = digits.reverse().join('')
+        console.log(reversed_digits)
     }
 }

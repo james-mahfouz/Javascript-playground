@@ -1,9 +1,9 @@
 window.onload = function(){
     let button = document.getElementById('register_btn')
     
-    button.addEventListener('click', handleClick)
+    button.addEventListener('click', register_button)
     
-    function handleClick() {
+    function register_button() {
         let first_name = document.getElementById('f_name').value
         let last_name = document.getElementById('l_name').value
         let gender = document.getElementById('gender').value
@@ -14,18 +14,18 @@ window.onload = function(){
         let data = {}
         
 
-        if (checkEmptyValue() || checkEmail() || checkPassword()) {
+        if (check_empty_value() || check_email() || check_password()) {
             button.removeEventListener('click', handleClick)
         }
         else{
-            let ID = generateID()
+            let ID = generate_id()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
             window.location.href = "playground.html"
 
         }
 
-        function checkEmptyValue() {
+        function check_empty_value() {
             if (first_name.trim() == '' || last_name.trim() == '' || gender.trim() == '' || email.trim() == '' || password.trim() == '' || conf_password.trim() == '') {
                 alert("There is an empty field")
                 return true
@@ -35,12 +35,12 @@ window.onload = function(){
             }
         }
 
-        function generateID(){
+        function generate_id(){
             last_ID++
             return last_ID
         }
 
-        function checkEmail(){
+        function check_email(){
             let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if (!email_regex.test(email)) {
                 alert("Invalid email format")
@@ -52,7 +52,7 @@ window.onload = function(){
             }
         }
 
-        function checkPassword() {
+        function check_password() {
             let pass_regex = /^(?=.*[A-Z])(?=.*[!@#$%_^&*])(?=.{8,})/
             if (!pass_regex.test(password) || password != conf_password) {
                 alert("Password should contain 8 characters minimum, one special character minimum, at least one upper case letter.")
