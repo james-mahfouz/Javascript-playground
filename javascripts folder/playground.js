@@ -167,16 +167,20 @@ window.onload = function(){
 
     function consonant_switch(){
         let consonant_input = document.getElementById('consonant_input').value
-        let display = document.getElementById('consonant-output').value
+        let display = document.getElementById('consonant-output')
+        let index=0
+        check_first_consonants(consonant_input)
 
-        let changed_word
+        let changed_consonants = consonant_input.slice(index) + consonant_input.slice(0, index) + "ay" 
+        console.log(changed_consonants)
+        
+        display.innerHTML = changed_consonants + '<br> Yup I am really bored hope I get a good great for this assignement'
 
         function check_vowel(char){
             return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase())
         }
 
         function check_first_consonants(string){
-            index=0
             for (let i = 0; i<string.length; i++){
                 if(check_vowel(string[i])){
                     index=i
