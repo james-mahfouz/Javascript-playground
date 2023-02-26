@@ -8,15 +8,7 @@ window.onload = function(){
     let animation = document.getElementById('animation')
     let ip_button = document.getElementById('ip_button')
     let to_top = document.getElementById('to_top_button')
-    window.onscroll = function() {
-        scrollFunction()
-    }
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-            alert("Nice you seem interested")
-        }
-    }
+    
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
@@ -27,6 +19,15 @@ window.onload = function(){
     animation.addEventListener('mouseover',show_image)
     ip_button.addEventListener('click', get_ip_address)
     to_top_button.addEventListener('click', scroll_top)
+    addEventListener('scroll', scroll_function)
+    let alert_displayed = false
+
+    function scroll_function() {
+        if (!alert_displayed && document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+            alert("Nice you seem interested")
+            alert_displayed = true
+        }
+    }
 
     function merge_numbers(){
         event.preventDefault()
