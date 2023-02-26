@@ -13,19 +13,20 @@ window.onload = function(){
         let last_ID = 0
         let data = {}
         
-
         if (check_empty_value() || check_email() || check_password()) {
             button.removeEventListener('click', handleClick)
         }
         else{
+            //generate an ID and put the values in a JSON object
             let ID = generate_id()
             values = [first_name, last_name, gender, email, password]
             data[ID] = values
             JSON.stringify(data)
+            //send you to the playgrounf page
             window.location.href = "playground.html"
 
         }
-
+        //check if there is an empty value
         function check_empty_value() {
             if (first_name.trim() == '' || last_name.trim() == '' || gender.trim() == '' || email.trim() == '' || password.trim() == '' || conf_password.trim() == '') {
                 alert("There is an empty field")
@@ -36,11 +37,13 @@ window.onload = function(){
             }
         }
 
+        //generate an ID
         function generate_id(){
             last_ID++
             return last_ID
         }
 
+        //check if there are letter thann @ than letter then . then letter
         function check_email(){
             let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if (!email_regex.test(email)) {
@@ -53,6 +56,7 @@ window.onload = function(){
             }
         }
 
+        //check if the password is equal to the confirmation an if it contain 8 character, a special character and an upper case letter
         function check_password() {
             let pass_regex = /^(?=.*[A-Z])(?=.*[!@#$%_^&*])(?=.{8,})/
             if (!pass_regex.test(password) || password != conf_password) {

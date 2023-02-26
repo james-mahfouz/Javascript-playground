@@ -1,4 +1,5 @@
 window.onload = function(){
+    //the buttons of the page 
     let merge_button = document.getElementById('merge_button')
     let palindrome_button = document.getElementById('palindrome_button')
     let prime_button = document.getElementById('prime_button')
@@ -10,6 +11,7 @@ window.onload = function(){
     let to_top_button = document.getElementById('to_top_button')
     let your_location = document.getElementById('your_location')
     
+    //the event listener
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
     prime_button.addEventListener('click', check_prime_age)
@@ -23,7 +25,7 @@ window.onload = function(){
     addEventListener('scroll', scroll_function)
     get_location()
 
-
+    //function that when the user scrolled 1500 px will activate just one time
     let alert_displayed = false
     function scroll_function() {
         if (!alert_displayed && document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
@@ -32,15 +34,13 @@ window.onload = function(){
         }
     }
 
+    //sort the array 
     function merge_numbers(){
         event.preventDefault()
         let display_result = document.getElementById('result')
         display_result.innerHTML=""
-        let numbers_input = document.getElementsByClassName('number_input')
-        let numbers_array =[]
-        for (let i=0; i <numbers_input.length; i++){
-            numbers_array.push(parseInt(numbers_input[i].value))
-        }
+        let numbers_array = document.getElementsByClassName('number_input')
+        
 
         console.log(numbers_array)
         let sorted_array = merge_sort(numbers_array)
