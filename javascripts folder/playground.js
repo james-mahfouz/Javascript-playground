@@ -7,7 +7,7 @@ window.onload = function(){
     let consonant_button = document.getElementById('consonant_button')
     let animation = document.getElementById('animation')
     let ip_button = document.getElementById('ip_button')
-    let to_top = document.getElementById('to_top_button')
+    let to_top_button = document.getElementById('to_top_button')
     
     merge_button.addEventListener('click', merge_numbers)
     palindrome_button.addEventListener('click', check_palindrome)
@@ -20,8 +20,9 @@ window.onload = function(){
     ip_button.addEventListener('click', get_ip_address)
     to_top_button.addEventListener('click', scroll_top)
     addEventListener('scroll', scroll_function)
+    
+    
     let alert_displayed = false
-
     function scroll_function() {
         if (!alert_displayed && document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
             alert("Nice you seem interested")
@@ -177,7 +178,7 @@ window.onload = function(){
         }
 
         let string_output = string_array.join("")
-        display.innerHTML = 'HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this'
+        display.innerHTML =string_output +  '<br>HAHAHHAHA numbers in the string are reversed :p , I was bored when I did this'
 
     }
 
