@@ -14,7 +14,7 @@ window.onload = function(){
         let data = {}
         
         if (check_empty_value() || check_email() || check_password()) {
-            button.removeEventListener('click', handleClick)
+            return
         }
         else{
             //generate an ID and put the values in a JSON object

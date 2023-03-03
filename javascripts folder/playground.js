@@ -26,11 +26,10 @@ window.onload = function(){
     get_location()
 
     //function that when the user scrolled 1500 px will activate just one time
-    let alert_displayed = false
     function scroll_function() {
-        if (!alert_displayed && document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+        if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
             alert("Nice you seem interested")
-            alert_displayed = true
+            removeEventListener('scroll', scroll_function)
         }
     }
 
